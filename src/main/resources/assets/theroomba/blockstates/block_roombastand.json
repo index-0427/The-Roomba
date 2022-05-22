@@ -4,7 +4,7 @@
     "textures": {
       "particle": "theroomba:blocks/block_roombastand"
     },
-    "model": "theroomba:block_tomato",
+    "model": "theroomba:block_roombastand",
     "uvlock": false
   },
   "variants": {

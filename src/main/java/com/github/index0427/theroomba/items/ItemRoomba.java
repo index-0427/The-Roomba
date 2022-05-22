@@ -9,6 +9,6 @@ public class ItemRoomba extends Item {
         this.setRegistryName("roomba");
         this.setCreativeTab(CreativeTabs.MATERIALS);
         this.setTranslationKey("roomba");
-        this.setMaxStackSize(1); //スタック数
+        this.setMaxStackSize(1); //stack size
     }
 }
