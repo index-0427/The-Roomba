@@ -1,9 +1,11 @@
 package com.github.index0427.theroomba;
 
+import com.github.index0427.theroomba.blocks.BlockRoombaStand;
 import com.github.index0427.theroomba.items.ItemRoomba;
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemBlock;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.event.RegistryEvent;
@@ -16,22 +18,24 @@ import net.minecraftforge.fml.common.registry.ForgeRegistries;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 
 @Mod(
-        modid = Theroomba.MOD_ID,
-        name = Theroomba.MOD_NAME,
-        version = Theroomba.VERSION
+        modid = TheRoomba.MOD_ID,
+        name = TheRoomba.MOD_NAME,
+        version = TheRoomba.VERSION
 )
-public class Theroomba {
+public class TheRoomba {
 
     public static final String MOD_ID = "theroomba";
     public static final String MOD_NAME = "Theroomba";
     public static final String VERSION = "MC1.12.2_1.0.0";
 
     public static final Item Roomba = new ItemRoomba();
+    public static final Block RoombaStand = new BlockRoombaStand();
+
     /**
      * This is the instance of your mod as created by Forge. It will never be null.
      */
     @Mod.Instance(MOD_ID)
-    public static Theroomba INSTANCE;
+    public static TheRoomba INSTANCE;
     /**
      * This is the first initialization event. Register tile entities here.
      * The registry events below will have fired prior to entry to this method.
@@ -39,12 +43,19 @@ public class Theroomba {
     @Mod.EventHandler
     public void preinit(FMLPreInitializationEvent event) {
         ForgeRegistries.ITEMS.register(Roomba);
+        ForgeRegistries.ITEMS.register(new ItemBlock(RoombaStand).setRegistryName("theroomba", "block_roombastand"));
+
+        ForgeRegistries.BLOCKS.register(RoombaStand);
 
         if(event.getSide().isClient()) {
             ModelLoader.setCustomModelResourceLocation(
                     Roomba,
                     0,
                     new ModelResourceLocation(new ResourceLocation("theroomba", "roomba"),"inventory"));
+            ModelLoader.setCustomModelResourceLocation(
+                    Item.getItemFromBlock(RoombaStand),
+                    0,
+                    new ModelResourceLocation(new ResourceLocation("theroomba", "block_roombastand"), "inventory"));
         }
     }
 

@@ -1,0 +1,16 @@
+{
+  "forge_marker": 1,
+  "defaults": {
+    "textures": {
+      "particle": "theroomba:blocks/block_roombastand"
+    },
+    "model": "theroomba:block_tomato",
+    "uvlock": false
+  },
+  "variants": {
+    "normal": [{
+    }],
+    "inventory": [{
+    }]
+  }
+}
